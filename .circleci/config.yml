@@ -40,7 +40,7 @@ jobs:
 workflows:
   build-deploy:
     jobs:
-      - Deploy App
+      - frontend:deploy
       - build_server_pdfs: 
           filters:
             branches:

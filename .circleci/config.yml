@@ -11,7 +11,6 @@ jobs:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
-      - image: "cimg/node:16.13.1-browsers"
     steps:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver

@@ -43,18 +43,6 @@ jobs:
       - run:
           name: Front-End Install
           command: |
-<<<<<<< HEAD
-            npm run frontend:deploy
-
-workflows:
-  my-App:                    # workflow label
-    jobs:
-      - build-myApp:  
-          filters:
-            branches:
-               ignore:                
-                  - main
-=======
             npm run frontend:install
       - run:
           name: Back-End Install
@@ -91,4 +79,4 @@ workflows:
             branches:
               only:
                 - master
->>>>>>> main
+

@@ -38,7 +38,7 @@ jobs:
 
 
 workflows:
-  my-App:                    # workflow label
+  shopping:                    # workflow label
     jobs:
       - build-myApp:  
           filters:

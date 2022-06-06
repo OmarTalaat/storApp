@@ -38,9 +38,9 @@ jobs:
 
 
 workflows:
-  shopping:                    # workflow label
+  storApp:                    # workflow label
     jobs:
-      - build-myApp:  
+      - build-storApp:  
           filters:
             branches:
                ignore:                

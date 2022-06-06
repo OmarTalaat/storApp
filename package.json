@@ -5,6 +5,8 @@
         "backend:build": "cd shopping_app_api && npm run build",
         "frontend:build": "cd shoppingApp-Clinet && npm run build",
         "frontend:test": "cd shoppingApp-Clinet && npm run test",
+        "backend:test": "cd shopping_app_api && npm run test",
+        "backend:deploy": "cd shopping_app_api && npm run deploy",
         "frontend:deploy":"cd shoppingApp-Clinet && npm run deploy "
     }
 }

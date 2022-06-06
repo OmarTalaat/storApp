@@ -7,7 +7,8 @@
     "start": "node ./dist/server.js",
     "build": "rimraf -rf ./dist &&npx  tsc",
     "test": "  db-migrate up --env test up &&  npx tsc  && Env=test jasmine && db-migrate reset  --env test ",
-    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\""
+    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
+    "deploy": " rimraf -rf ./dist && npx  tsc && eb deploy"
   },
   "engines" : { 
     "npm" : ">=8.5.0",

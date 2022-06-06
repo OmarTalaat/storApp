@@ -16,7 +16,7 @@ yarn             # For dependency management
   
 
  # Add env file
-   add a .env file in the root directory add the following information
+   add a `.env` file in the root directory add the following information
 
       POSTGRES_host =localhost
       POSTGRES_PORT=5432

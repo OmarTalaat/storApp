@@ -57,7 +57,7 @@ jobs:
           command: |
             npm run frontend:build
       - run:
-          name: Deploy
+          name: Front-End deploy
           command: |
             npm run frontend:deploy
 

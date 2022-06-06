@@ -43,7 +43,3 @@ workflows:
   build-workflow:
     jobs:
       -build
-      -Deploy
-          filters:
-            branches:
-              only: master

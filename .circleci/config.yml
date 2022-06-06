@@ -6,7 +6,7 @@ orbs:
 
   # different jobs are calles later in the workflows sections
 jobs:
-  build:
+  build_dev:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
@@ -31,9 +31,19 @@ jobs:
           name: Front-End Build
           command: |
             npm run frontend:build
+
+  build_master:
+    docker:
+      # the base image can run most needed actions with orbs
+      - image: "cimg/base:stable"
+    steps:
+      - node/install
+      - checkout
+      - aws-cli/setup
       - run:
-          name: Deploy App
+          name: Front-End Install
           command: |
+<<<<<<< HEAD
             npm run frontend:deploy
 
 workflows:
@@ -44,3 +54,41 @@ workflows:
             branches:
                ignore:                
                   - main
+=======
+            npm run frontend:install
+      - run:
+          name: Back-End Install
+          command: |
+            npm run backend:install
+      - run:
+          name: Back-End Build
+          command: |
+            npm run backend:build
+      - run:
+          name: Front-End Build
+          command: |
+            npm run frontend:build
+      - run:
+          name: Deploy
+          command: |
+            npm run frontend:deploy
+
+
+workflows:
+  version: 2.1
+
+  build_dev:    
+    jobs:
+      - build_dev:
+          filters:
+            branches:
+              only:
+                - main
+  build_master:    
+    jobs:
+      - build_master:
+          filters:
+            branches:
+              only:
+                - master
+>>>>>>> main

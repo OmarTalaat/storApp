@@ -60,8 +60,6 @@ jobs:
           name: Front-End deploy
           command: |
             npm run frontend:deploy
-
-
 workflows:
   version: 2.1
 

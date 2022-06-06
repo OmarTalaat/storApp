@@ -38,9 +38,9 @@ jobs:
 
 
 workflows:
-  Deploy App:
+  build-workflow:
     jobs:
-      
+      -build
       - Deploy App: 
           filters:
             branches:

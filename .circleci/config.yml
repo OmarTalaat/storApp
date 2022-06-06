@@ -31,15 +31,17 @@ jobs:
           name: Front-End Build
           command: |
             npm run frontend:build
-
-  deploy: 
       - run:
           name: Deploy
           command: |
             npm run frontend:deploy
 
 
+
 workflows:
   build-workflow:
     jobs:
       -build
+          filters:
+            branches:
+              only: master

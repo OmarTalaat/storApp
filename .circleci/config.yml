@@ -35,3 +35,12 @@ jobs:
           name: Deploy App
           command: |
             npm run frontend:deploy
+
+workflows:
+  my-App:                    # workflow label
+    jobs:
+      - build-myApp:  
+          filters:
+            branches:
+               ignore:                
+                  - main

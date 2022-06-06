@@ -39,9 +39,10 @@ jobs:
 
 
 workflows:
-  build-workflow:
+  version: 2.1
+  BRANCH_TO_IGNORE:
     jobs:
-      -build
+      - build:
           filters:
             branches:
-              only: master
+              ignore: main

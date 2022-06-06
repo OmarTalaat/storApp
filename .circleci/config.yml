@@ -38,9 +38,10 @@ jobs:
 
 
 workflows:
+  build-deploy:
     jobs:
-      - build:  
+      - js_build
+      - build_server_pdfs: 
           filters:
             branches:
-               ignore:                
-                  - main
+              only: master

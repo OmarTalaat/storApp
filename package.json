@@ -4,6 +4,7 @@
         "backend:install": "cd shopping_app_api && npm install",
         "backend:build": "cd shopping_app_api && npm run build",
         "frontend:build": "cd shoppingApp-Clinet && npm run build",
+        "frontend:test": "cd shoppingApp-Clinet && npm run test",
         "frontend:deploy":"cd shoppingApp-Clinet && npm run deploy "
     }
 }

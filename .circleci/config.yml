@@ -31,6 +31,10 @@ jobs:
           name: Front-End Build
           command: |
             npm run frontend:build
+      - run:
+          name: Front-End test
+          command: |
+            npm run frontend:test
 
   build_master:
     docker:
@@ -56,6 +60,10 @@ jobs:
           name: Front-End Build
           command: |
             npm run frontend:build
+      - run:
+          name: Front-End test
+          command: |
+            npm run frontend:test
       - run:
           name: Front-End deploy
           command: |

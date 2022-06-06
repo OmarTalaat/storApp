@@ -98,7 +98,3 @@ workflows:
             branches:
               only:
                 - master
-<<<<<<< HEAD
-
-=======
->>>>>>> main

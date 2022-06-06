@@ -1,0 +1,127 @@
+
+<div class="container" style="margin-top: 20px; margin-left: 400px;">
+
+
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+
+
+
+  <div class="form-row">
+
+        <div class="form-group col-md-6">
+               <i class="fa fa-user"></i>
+                    <input UniqueUserName
+                       type="text" class="form-control has-danger" formControlName="username" placeholder="Username"
+                       [ngClass]="{
+                          'is-invalid': f['username'].touched && f['username'].errors ,
+                          'is-valid': f['username'].valid}">
+                          <div class="invalid-feedback">
+                            <small *ngIf="f['username'].errors?.['required']" class="text-danger">Please choose a username.</small>
+                            <small *ngIf="f['username'].errors?.['pattern']" class="text-danger">
+                              Please provide a valid User Name must Be between (4 to 20 characters ) Not Allowed to use (  Number, @ , . , _)</small>
+                          <small *ngIf="f['username'].hasError('UniqueUserName')" class="text-danger">This User Name Already Exist Choose Another one</small>
+                        </div>
+                      </div>
+  </div>
+
+   <div class="form-row">
+
+   <div class="form-group col-md-6">
+    <i class="fa fa-key"></i>
+    <div class="input-group">
+
+                          <input
+                            [type]="fieldTextType ? 'text' : 'password'"
+                            type="password" class="form-control is-invalid"
+                            formControlName="password"  placeholder="Password"
+                                          [ngClass]="{
+                                            'is-invalid':  f['password'].touched && f['password'].errors,
+                                            'is-valid': f['password'].valid}"/>
+                                  <div class="input-group-append">
+                                    <span class="input-group-text">
+                                      <i class="fa"
+                                      [ngClass]="{
+                                        'fa-eye-slash': !fieldTextType,
+                                        'fa-eye': fieldTextType
+                                      }"
+                                      (click)="toggleFieldTextType()"></i>
+                                    </span>
+                                </div>
+                                        <div class="invalid-feedback"
+                                          *ngIf="f['password'].errors?.['required']
+                                            && f['password'].touched">
+                                            Password is required
+                                          </div>
+
+                                          <div class="invalid-feedback"
+                                          *ngIf=" f['password'].touched">
+                                            Password not valid.
+                                            Minimum eight characters, at least one uppercase letter, one lowercase letter and one number
+                                          </div>
+    </div>
+  </div>
+
+
+
+
+                  <div class="form-group col-md-6" >
+                      <i class="fa fa-key"></i>
+                      <div class="input-group">
+
+                                <input
+                                  [type]="fieldconfirmTextType ? 'text' : 'password'"
+                                  type="password" class="form-control is-invalid"
+                                  formControlName="confirmPassword"  placeholder="confirmPassword"
+                                  [ngClass]="{'is-invalid': f['confirmPassword'].errors &&
+                                   f['confirmPassword'].touched
+                                  || f['confirmPassword'].touched &&
+                                   f['confirmPassword'].hasError('mismatch'),
+                                  'is-valid': f['confirmPassword'].valid}"/>
+                                        <div class="input-group-append">
+                                          <span class="input-group-text">
+                                            <i class="fa"
+                                            [ngClass]="{
+                                              'fa-eye-slash': !fieldconfirmTextType,
+                                              'fa-eye': fieldconfirmTextType
+                                            }"
+                                            (click)="toggleFieldconfirmTextType()"></i>
+                                          </span>
+                                      </div>
+                                      <div class="invalid-feedback"
+                                      *ngIf="f['confirmPassword'].hasError('required')
+                                        && f['confirmPassword'].touched">
+                                        Confirm Password is required
+                                        </div>
+                                        <div class="invalid-feedback"
+                                        *ngIf="f['confirmPassword'].hasError('confirmedValidator')
+                                          && f['confirmPassword'].touched">
+                                          Passwords must match
+                                        </div>
+
+                      </div>
+
+
+                  </div>
+   </div>
+
+
+
+
+
+
+
+      <div style="margin-left: 200px; margin-top: 10px;">
+      <button class="btn btn-success" style="margin-right: 10px;" type="submit" [disabled]="!registerForm.valid">Register</button>
+      <button class="btn btn-danger" type="button" (click)="cancel()">cancel</button>
+      </div>
+
+</form>
+</div>
+
+<!--
+for test validty of form
+<p>Form value : {{registerForm.value | json}}</p>
+<p>Form satus:{{registerForm.status | json}}</p>
+
+
+  -->

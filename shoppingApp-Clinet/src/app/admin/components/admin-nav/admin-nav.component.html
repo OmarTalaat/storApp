@@ -1,0 +1,59 @@
+<div class="wrapper d-flex align-items-stretch">
+  <nav id="sidebar" [ngClass]="{ 'active': navbarOpen }">
+    <div class="p-4 pt-5">
+
+      <img  src="../../assets/img/person-placeholder.jpg"  class="rounded-circle" alt="">
+      <ul class="list-unstyled components mb-5">
+        <li class="active">
+          <a *appHasRole="['Admin','Moderator']" routerLink="productsmangement">Products Management</a>
+
+      </li>
+      <li >
+        <a *appHasRole="['Admin','Moderator']" routerLink="categorylist">Categories Management</a>
+
+    </li>
+      <li>
+        <a *appHasRole="['Admin']" routerLink="userRoles" >Users Role</a>
+      </li>
+      <li>
+        <a *appHasRole="['Admin','Moderator']"  routerLink="userslist" >Users Table</a>
+      </li>
+
+        <li>
+            <a *appHasRole="['Admin','Moderator']" routerLink="photoAproval">Photo Management</a>
+
+        </li>
+
+
+
+      </ul>
+
+
+
+    </div>
+  </nav>
+
+    <!-- Page Content  -->
+  <div id="content" class="p-4 p-md-5">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" (click)="toggleNavbar()">
+      <div class="container-fluid">
+
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <i class="fa fa-bars"></i>
+          <span class="sr-only">Toggle Menu</span>
+        </button>
+        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <h3 style="text-align: left;">Admin control</h3>
+        </div>
+      </div>
+    </nav>
+    <router-outlet></router-outlet>
+
+
+  </div>
+</div>

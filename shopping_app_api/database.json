@@ -1,0 +1,16 @@
+{
+  "dev": {
+    "driver": "pg",
+    "host": "dbstore.crkp9cst9gyo.us-east-1.rds.amazonaws.com",
+    "user": "fullstackuser",
+    "password": "pass1234",
+    "database": "dbstore"
+  },
+  "test": {
+    "driver": "pg",
+    "host": "localhost",
+    "user": "fullstackuser",
+    "password": "pass1234",
+    "database": "storeapp_db_test"
+  }
+}

@@ -1,0 +1,49 @@
+[
+
+ 
+    {
+      "Namespace": "aws:elasticbeanstalk:application:environment",
+      "OptionName": "POSTGRES_host",
+      "Value": "dbstore.crkp9cst9gyo.us-east-1.rds.amazonaws.com"
+    },
+    {
+      "Namespace": "aws:elasticbeanstalk:application:environment",
+      "OptionName": "POSTGRES_PORT",
+      "Value": "5432"
+    },
+    {
+        "Namespace": "aws:elasticbeanstalk:application:environment",
+        "OptionName": "POSTGRES_USER",
+        "Value": "fullstackuser"
+      },
+      {
+        "Namespace": "aws:elasticbeanstalk:application:environment",
+        "OptionName": "POSTGRES_PASSWORD",
+        "Value": "pass1234"
+      },
+      {
+        "Namespace": "aws:elasticbeanstalk:application:environment",
+        "OptionName": "POSTGRES_DATABASE",
+        "Value": "dbstore"
+      },
+      {
+        "Namespace": "aws:elasticbeanstalk:application:environment",
+        "OptionName": "NODE_ENV",
+        "Value": "dev"
+      },
+      {
+        "Namespace": "aws:elasticbeanstalk:application:environment",
+        "OptionName": "APP_SECRET",
+        "Value": "om_shopping_app"
+      },
+      {
+        "Namespace": "aws:elasticbeanstalk:application:environment",
+        "OptionName": "SALTROUNDS",
+        "Value": "10"
+      },
+      {
+        "Namespace": "aws:elasticbeanstalk:application:environment",
+        "OptionName": "TOKEN_SECRET",
+        "Value": "Omar@-secret-key"
+      }
+  ]

@@ -1,0 +1,9 @@
+node_modules/
+spec/
+docker-compose.yml
+.env
+runbooks/
+migrations
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

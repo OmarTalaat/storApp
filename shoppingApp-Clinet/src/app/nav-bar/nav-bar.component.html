@@ -1,0 +1,108 @@
+
+
+
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark ">
+  <div class="container-fluid mr-5">
+    <a  class="navbar-brand">Shopping App</a>
+
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" *ngIf="loggedIn()">
+      <ul class="navbar-nav" routerLinkActive="active" *ngIf="loggedIn()">
+        <li class="active"><a href="/categorylist" class="nav-link" routerLink="categorylist">products </a></li>
+        <li *appHasRole="['Admin','Moderator']" class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/admin']"><i class="fa fa-list-alt" aria-hidden="true"></i> Admin</a>
+        </li>
+
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end "  id="navbarSupportedContent">
+      <ul class="navbar-nav" routerLinkActive="active" *ngIf="!loggedIn()">
+        <li class="active"><a  class="nav-link" [routerLink]="['home']"  >Home </a></li>
+        <li><a  class="nav-link" routerLink="aboutus">About</a></li>
+        <li><a  class="nav-link">Contact</a></li>
+      </ul>
+
+
+      <ul class="navbar-nav mr-auto w-100 justify-content-end" *ngIf="!loggedIn()">
+
+            <li class="nav-item">
+              <a href="/register" class="nav-link " routerLink="sinup">Sign Up</a>
+            </li>
+            <li  *ngIf="!registerdMode" class="nav-item" dropdown #dropdown="bs-dropdown" [autoClose]="false">
+              <a  data-toggle="dropdown" class="nav-link dropdown-toggle"  dropdownToggle><i class="fa fa-fw fa-user"></i>Login</a>
+              <ul class="dropdown-menu dropdown-menu-right form-wrapper" *dropdownMenu >
+                <li>
+                  <form #loginForm="ngForm" (ngSubmit)="login()" >
+                    <p class="hint-text">Sign in with your social media account</p>
+                    <div class="social-login">
+                      <button class="btn facebook-btn social-btn"  type="button"><span><i class="fa fa-facebook"></i> Sign in with </span> </button>
+                      <button class="btn google-btn social-btn" type="button"><span><i class="fa fa-google-plus"></i> Sign in with </span> </button>
+                  </div>
+
+
+                    <div class="or-seperator"><b>or</b></div>
+                    <div class="form-group" >
+                      <input class="form-control mr-sm-2" type="text" name="username" placeholder="username" required [(ngModel)]="model.username">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control mr-sm-2" type="password" name="password" placeholder="PassWord" required [(ngModel)]="model.password">
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block" value="Login" [disabled]="!loginForm.valid" (click)="dropdown.hide()">
+                    <div class="form-footer">
+                      <a href="#" routerLinkActive="router-link-active"  (click)="dropdown.hide()" >Forgot Your password?</a>
+
+
+                    </div>
+                    </form>
+
+                </li>
+              </ul>
+            </li>
+      </ul>
+
+      <div *ngIf="loggedIn()" class="navbar-nav" style="margin-right: 30px; margin-top: 2px;">
+
+        <div class="nav-item mr-4" routerLinkActive="active">
+          <a class="nav-link wobble-horizontal" [routerLink]="['/cart']" ><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{quantity}}</span>
+          </a>
+          </div>
+
+        <div class="nav-item mr-4" routerLinkActive="active">
+          <a class="nav-link wobble-horizontal" ><i class="fa fa-comment" aria-hidden="true"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+          </a>
+          </div>
+
+
+        <div class="nav-item mr-4"><a class="nav-link wobble-bottom-on-hover" ><i class="fa fa-bell" aria-hidden="true"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+        </a></div>
+
+
+      </div>
+
+     <div>
+      <div *ngIf="loggedIn()" class="dropdown" dropdown>
+
+        <img  src="../../assets/img/person-placeholder.jpg"  class="rounded-circle" alt="">
+        <a class=" dropdown-toggle text-light" dropdownToggle>
+          Welcome {{authService.decodedToken?.username | titlecase}}
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-right mt-2" *dropdownMenu>
+
+
+
+        <div class="dropdown-divider"></div>
+        <li class="dropdown-item"  ><i class="fa fa-user"></i> My profile</li>
+          <li class="dropdown-item" ><i class="fa fa-user"></i> edit profile</li>
+
+      <div class="dropdown-divider"></div>
+          <li class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>logout</li>
+        </ul>
+      </div>
+     </div>
+    </div>
+  </div>
+</nav>

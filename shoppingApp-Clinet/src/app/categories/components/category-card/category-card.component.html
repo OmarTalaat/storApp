@@ -1,0 +1,16 @@
+
+    <div style="margin: 3rem auto; width: 20rem">
+      <div class="card">
+        <img
+          src="../../../assets/img/photo-category-word.jpg"
+          class="card-img-top"
+          alt="Phone"
+        />
+        <div class="card-body" style="margin-left: 20px;">
+          <h5 class="card-title" style="text-align: center;">{{category.name}}</h5>
+
+          <a  class="btn btn-primary float-end" [routerLink]="['/categorylist/',category.id,'products']" >Product list</a>
+        </div>
+      </div>
+    </div>
+

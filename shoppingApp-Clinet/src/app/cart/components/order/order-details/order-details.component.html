@@ -1,0 +1,46 @@
+<div class="container-fluid mt-100" *ngIf="order === null">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-header">
+                  <h5>Cart</h5>
+              </div>
+              <div class="card-body cart">
+                  <div class="col-sm-12 empty-cart-cls text-center"> <img src="../../../../assets/img/emtyShoppingCart.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+                      <h3><strong>Your Cart is Empty</strong></h3>
+                      <h4>Add something to Your Card :)</h4>
+                       <a [routerLink]="['/categorylist']" routerLinkActive="router-link-active"  class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="container" *ngIf="order?.status === 'Active'">
+  <main>
+    <div class="py-5 text-center">
+        <h2>Checkout form</h2>
+    </div>
+    <div class="row g-5">
+        <div class="col-md-5 col-lg-5 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Your cart</span>
+                <span class="badge bg-primary rounded-pill">{{itemcount!}}</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <app-item-list [order]="order"  (itemcountupdate)="changeitemcount($event)"></app-item-list>
+            </ul>
+
+
+        </div>
+        <div class="col-md-7 col-lg-7">
+            <app-order-edit [order]="order" ></app-order-edit>
+        </div>
+    </div>
+  </main>
+</div>

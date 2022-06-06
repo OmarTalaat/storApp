@@ -1,0 +1,160 @@
+<h4 class="mb-3">Billing address</h4>
+            <form class="needs-validation"  id="editForm" #editForm="ngForm" novalidate  (ngSubmit)="submitForm()" >
+                <div class="row g-3">
+
+                    <div class="col-sm-6">
+                        <label for="firstName" class="form-label">User name</label>
+                        <input type="text" class="form-control" disabled id="firstName" placeholder="" value="{{username}}" required>
+                        <div class="valid-feedback">
+                            Valid user Name is required.
+                        </div>
+                    </div>
+
+
+
+                  <div class="form-group required">
+                    <div class="col-10">
+
+                        <label class='control-label'>Address</label>
+                        <input type="text" name="adress" class="form-control" [(ngModel)]="order.adress" #adress="ngModel"
+                        [ngClass]="{ 'is-invalid': adress.touched  && adress.errors ,
+                                       'is-valid': adress.valid }" required>
+                        <div class="invalid-feedback" *ngIf=" adress.invalid">
+                          <p *ngIf="adress.errors.required">Adress is required</p>
+                        </div>
+                    </div>
+
+                  </div>
+
+                  <div class="row col-md-10">
+
+
+                    <div class="col-md-5">
+                      <div class="form-group required">
+                      <label class='control-label'>Country</label>
+                      <select class="form-select" name="countryName" [(ngModel)]="order.countryName"
+                       required
+                       #countryName="ngModel"
+                       [ngClass]="{
+                            'is-invalid': countryName.touched  && countryName.errors ,
+                            'is-valid': countryName.valid}" >
+                          <option  value="" disabled>Choose...</option>
+                          <option *ngFor="let country of countryList" [ngValue]="country.countryName">{{country.countryName}}</option>
+                      </select>
+                      <div class="invalid-feedback"  *ngIf=" countryName.invalid">
+                        <p *ngIf="countryName.errors.required">Please select a valid country.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                 <div class="col-md-3" >
+                    <div class="form-group required">
+                      <label class='control-label'>Zip</label>
+                      <input type="text" class="form-control"
+                       name="zip"
+                       [(ngModel)]="order.zip"
+                       #zip="ngModel"
+                       [ngClass]="{
+                        'is-invalid': zip.touched && zip.errors,
+                        'is-valid': zip.valid }"  required >
+                        <div class="invalid-feedback" *ngIf=" zip.invalid">
+                          <p *ngIf="zip.errors.required ">Zip Code is required</p>
+
+                        </div>
+                      </div>
+
+                  </div>
+
+                  </div>
+
+
+
+
+
+
+                  <hr class="my-4">
+
+                  <h4 class="mb-3">Payment</h4>
+
+
+
+                  <div class="row gy-3">
+                    <div class="col-md-6">
+                      <div class="form-group required">
+                        <label class='control-label'>Name on card</label>
+                        <input type="text" class="form-control" id="cc-name" placeholder="Name on card"
+                         [(ngModel)]="order.nameoncard"   name="nameoncard"
+                          #nameoncard="ngModel"
+                          [ngClass]="{
+                            'is-invalid': nameoncard.touched  && nameoncard.errors ,
+                            'is-valid': nameoncard.valid }" required>
+                          <div class="invalid-feedback" *ngIf=" nameoncard.invalid">
+                            <p *ngIf="nameoncard.errors.required">name on card  is required</p>
+                          </div>
+
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group required">
+                        <label class='control-label'>Credit card number</label>
+                        <input type="tel" class="form-control" id="cc-number" autocomplete="cc-number" ccNumber name="creditcardNumber" placeholder=""
+                         [(ngModel)]="order.creditcardNumber"
+                         #creditcardNumber="ngModel"
+                         [ngClass]="{
+                          'is-invalid': creditcardNumber.touched && creditcardNumber.errors ,
+                          'is-valid': creditcardNumber.valid }"  required>
+                          <div class="invalid-feedback" *ngIf=" creditcardNumber.invalid">
+                            <p *ngIf="creditcardNumber.errors.required"> card Number is required</p>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group required">
+                        <label class='control-label'>Expiration Date</label>
+                        <input  class="form-control" id="cc-exp-date" name="exirationDate" type="tel" autocomplete="cc-exp" ccExp placeholder="MM/YYYY"
+                        [(ngModel)]="order.exirationDate" #exirationDate="ngModel"
+                          [ngClass]="{
+                            'is-invalid': exirationDate.touched  && exirationDate.errors ,
+                          'is-valid': exirationDate.valid
+                          }"
+                        required >
+                        <div class="invalid-feedback" *ngIf=" exirationDate.invalid">
+                          <p *ngIf="exirationDate.errors.required"> Expiration Date is required</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group required">
+                        <label class='control-label'>CVV</label>
+                        <input  class="form-control" id="cc-cvc" type="tel" autocomplete="off" ccCVC placeholder=""
+                         [(ngModel)]="order.cvv"  name="cvv"  maxlength="4" #cvv="ngModel"
+                          [ngClass]="{
+                            'is-invalid': cvv.touched  && cvv.errors ,
+                            'is-valid': cvv.valid
+                          }" required >
+                          <div class="invalid-feedback" *ngIf=" cvv.invalid">
+                            <p *ngIf="cvv.errors.required"> CVV  is required</p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                </div>
+
+
+
+
+
+
+            </form>
+            <button class="w-100 btn btn-danger btn-lg" [disabled]="!editForm.dirty || !editForm.valid" form="editForm" style="margin-top: 20px;" >Complete your order</button>
+
+           <!--    for test validity of form
+            <p>Form value : {{editForm.value | json}}</p>
+            <p>Form satus:{{editForm.status | json}}</p> -->
+

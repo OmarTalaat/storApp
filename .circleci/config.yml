@@ -41,7 +41,7 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - build_server_pdfs: 
+      - Deploy App: 
           filters:
             branches:
               only: master

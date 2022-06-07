@@ -1,12 +1,16 @@
 # Infrastructure 
 
  ## Database
-      RDS AWS postgrase  with security group
+      RDS AWS postgrase  with security group  in vpc public 
+
  ## Backend
-       node js web application framework that provides broad features for building web 
-        - Allows  respond to HTTP Requests.
-        -Defines a routing table which is used to perform different actions based on HTTP Method and URL.
-        - authentication and authorization 
+      using elasticbeanstalk it will create 
+       - loadbalncer to organize the ports in the app
+       - EC2 to act as virsual machine that will hold the app and install all dependency and run the app
+       - 2 security group one for the app and the other for loadbalncer
+       - s3 bucket hold the zip file of app  
+ 
 
 ## Frontend 
-     Angular 13 is a platform and framework for building single-page client applications using HTML and TypeScript. Angular is written in TypeScript
+     using s3 bucket and it well be public that hold the dist file 
+ 

@@ -80,6 +80,10 @@ jobs:
           command: |
             npm run frontend:test
       - run:
+          name: Back-End deploy
+          command: |
+            npm run backend:deploy
+      - run:
           name: Front-End deploy
           command: |
             npm run frontend:deploy

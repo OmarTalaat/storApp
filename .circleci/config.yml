@@ -88,6 +88,10 @@ jobs:
           command: |
             npm run backend:deploy
       - run:
+          name: Back-End setenv
+          command: |
+            npm run backend:setenv
+      - run:
           name: Front-End deploy
           command: |
             npm run frontend:deploy

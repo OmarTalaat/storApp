@@ -7,6 +7,7 @@
         "frontend:test": "cd shoppingApp-Clinet && npm run test",
         "backend:test": "cd shopping_app_api && npm run test",
         "backend:deploy": "cd shopping_app_api && npm run deploy",
+        "backend:setenv":"cd shopping_app_api && npm run setenv",
         "frontend:deploy":"cd shoppingApp-Clinet && npm run deploy "
     }
 }
